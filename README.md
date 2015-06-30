@@ -1,6 +1,6 @@
 # firerating
 
-Convert the Revit FireRating SDK sample to a cloud-based multi-project implementation
+Convert the Revit FireRating SDK sample to a cloud-based multi-project implementation.
 
 For more information, please refer to
 [The 3D Web Coder](http://the3dwebcoder.typepad.com),
