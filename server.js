@@ -1,4 +1,4 @@
-// given: a Revit door element UniqeId.
+// given: a Revit door element UniqeId;
 // it must obviously be unique in the database.
 
 var unique_id
