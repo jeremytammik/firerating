@@ -1,0 +1,6 @@
+{
+  "name": "firerating",
+  "description": "Cloud-based FireRating sample using mongo via mongoose",
+  "repository": "https://github.com/jeremytammik/firerating",
+  "keywords": ["node", "mongoose"]
+}

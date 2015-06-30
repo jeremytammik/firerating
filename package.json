@@ -1,0 +1,24 @@
+{
+  "name": "firerating",
+  "version": "0.0.0",
+  "description": "Cloud-based FireRating sample using mongo via mongoose",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "mongoose": "*"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeremytammik/firerating"
+  },
+  "keywords": [
+    "node",
+    "mongose"
+  ],
+  "license": "MIT"
+}
