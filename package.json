@@ -1,6 +1,6 @@
 {
   "name": "firerating",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Cloud-based FireRating sample using mongo via mongoose",
   "main": "server.js",
   "scripts": {

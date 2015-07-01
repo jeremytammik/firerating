@@ -4,11 +4,6 @@
 var door_unique_id
   = '60f91daf-3dd7-4283-a86d-24137b73f3da-0001fd0b';
 
-// Document.WorksharingCentralGUID property, if defined,
-// or Document.ProjectInformation.UniqueId.
-
-var project_guid
-
 var mongoose = require( 'mongoose' );
 
 mongoose.connect( 'mongodb://localhost/firerating' );
@@ -18,11 +13,19 @@ var Schema = mongoose.Schema,
 
 var RvtUniqueId = String;
 
+// How to identify the Revit project?
+// Document.WorksharingCentralGUID property, if defined,
+// or Document.ProjectInformation.UniqueId? Simpler:
 // identify Revit project by machine name and full path,
 // System.Environment.MachineName + Document.PathName;
-// this only works for saved non-workshared documents;
-// no idea how to handle that... use automatic
-// ObjectId instead, to handle both types of projects.
+// compress the long string? use MD5?
+// SHA-2! https://en.wikipedia.org/wiki/SHA-2
+// in .NET: System.Security.Cryptography.SHA256Managed
+// path only works for saved non-workshared documents;
+// no idea how to handle workshared ones...
+// therefore, use automatic default mongo
+// ObjectId instead of specifying our own, to handle both
+// locally stored and central model projects.
 
 var projectSchema = new Schema(
   { //_id               : RvtProjectPath
@@ -38,23 +41,6 @@ var projectSchema = new Schema(
 
 var ProjectModel = mongoose.model( 'Project', projectSchema );
 
-var computer_name = 'JEREMYTAMMIB1D2';
-var project_path = 'C:/Program Files/Autodesk/Revit 2016/Samples/rac_basic_sample_project.rvt';
-
-// compress? use MD5? SHA-2! https://en.wikipedia.org/wiki/SHA-2
-// in .NET: System.Security.Cryptography.SHA256Managed
-// but then we might as well use the default mongo objectid...
-
-var projectInstance = new ProjectModel();
-
-projectInstance.computername = 'JEREMYTAMMIB1D2';
-projectInstance.path = 'C:/Program Files/Autodesk/Revit 2016/Samples/rac_basic_sample_project.rvt';
-projectInstance.centralserverpath = '';
-projectInstance.title = 'rac_basic_sample_project.rvt';
-projectInstance.numberofsaves = 271;
-projectInstance.versionguid = 'f498e8b1-7311-4409-a669-2fd290356bb4';
-projectInstance.projectinfo_uid = '8764c510-57b7-44c3-bddf-266d86c26380-0000c160';
-
 var doorSchema = new Schema(
   { _id          : RvtUniqueId // suppress automatic generation
     , project_id : ObjectId
@@ -65,6 +51,16 @@ var doorSchema = new Schema(
 );
 
 var DoorModel = mongoose.model( 'Door', doorSchema );
+
+var projectInstance = new ProjectModel();
+
+projectInstance.computername = 'JEREMYTAMMIB1D2';
+projectInstance.path = 'C:/Program Files/Autodesk/Revit 2016/Samples/rac_basic_sample_project.rvt';
+projectInstance.centralserverpath = '';
+projectInstance.title = 'rac_basic_sample_project.rvt';
+projectInstance.numberofsaves = 271;
+projectInstance.versionguid = 'f498e8b1-7311-4409-a669-2fd290356bb4';
+projectInstance.projectinfo_uid = '8764c510-57b7-44c3-bddf-266d86c26380-0000c160';
 
 projectInstance.save(function (err) {
   console.log( 'save project returned err = ' + err );
