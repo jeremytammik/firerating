@@ -13,33 +13,22 @@ var Schema = mongoose.Schema,
 
 var RvtUniqueId = String;
 
-// How to identify the Revit project?
-// Document.WorksharingCentralGUID property, if defined,
-// or Document.ProjectInformation.UniqueId? Simpler:
-// identify Revit project by machine name and full path,
-// System.Environment.MachineName + Document.PathName;
-// compress the long string? use MD5?
-// SHA-2! https://en.wikipedia.org/wiki/SHA-2
-// in .NET: System.Security.Cryptography.SHA256Managed
-// path only works for saved non-workshared documents;
-// no idea how to handle workshared ones...
-// therefore, use automatic default mongo
-// ObjectId instead of specifying our own, to handle both
-// locally stored and central model projects.
+// use automatic Mongo ObjectId for project.
 
 var projectSchema = new Schema(
-  { //_id               : RvtProjectPath
-    computername        : String // .NET System.Environment.MachineName
+  { computername        : String // .NET System.Environment.MachineName
     , path              : String // Document.PathName
     , centralserverpath : String // Document.GetWorksharingCentralModelPath().CentralServerPath
     , title             : String // Document.Title
     , numberofsaves     : Number // DocumentVersion.NumberOfSaves
     , versionguid       : RvtUniqueId // DocumentVersion.VersionGUID
-    , projectinfo_uid   : RvtUniqueId } // ProjectInfo.UniqueId
-  //{ _id: false } // suppress automatic generation
+    , projectinfo_uid   : RvtUniqueId // ProjectInfo.UniqueId
+  }
 );
 
 var ProjectModel = mongoose.model( 'Project', projectSchema );
+
+// use Revit UniqueId for door instances.
 
 var doorSchema = new Schema(
   { _id          : RvtUniqueId // suppress automatic generation
@@ -68,25 +57,17 @@ projectInstance.save(function (err) {
     var pid = projectInstance._id;
     console.log( 'project_id = ' + pid );
 
-    var instance = new DoorModel();
-    instance._id = door_unique_id;
-    instance.project_id = pid;
-    instance.level = 'Level 1';
-    instance.tag = 'Tag 1';
-    instance.firerating = 123.45;
-    instance.save(function (err) {
-      console.log( 'save instance returned err = ' + err );
-      if(!err) {
-        var instance2 = new DoorModel();
-        instance2._id = door_unique_id + '2';
-        instance2.project_id = pid;
-        instance2.level = 'Level 2';
-        instance2.tag = 'Tag 2';
-        instance2.firerating = 678.9;
-        instance2.save(function (err) {
-          console.log( 'save instance2 returned err = ' + err );
-        });
-      }
-    });
+    for( var i = 0; i < 10; ++i ) {
+      var inst = new DoorModel();
+      var s = i.toString();
+      inst._id = door_unique_id + s;
+      inst.project_id = pid;
+      inst.level = 'Level ' + s;
+      inst.tag = 'Tag ' + s;
+      inst.firerating = 123.45 * (i + 0.1);
+      inst.save(function (err) {
+        console.log( 'save instance returned err = ' + err );
+      });
+    }
   }
 });
