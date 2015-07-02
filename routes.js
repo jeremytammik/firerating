@@ -1,5 +1,5 @@
 module.exports = function(app) {
-  var projects = require('./controllers/projects');
+  var projects = require('./controller/projects');
   app.get('/projects', projects.findAll);
   app.get('/projects/:id', projects.findById);
   app.post('/projects', projects.add);

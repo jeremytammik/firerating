@@ -7,6 +7,7 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "body-parser": "*",
     "express": "*",
     "mongoose": "*"
   },
@@ -21,5 +22,8 @@
     "node",
     "mongose"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "body-parser": "^1.13.1"
+  }
 }
