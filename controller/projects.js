@@ -52,6 +52,7 @@ exports.populate_rac_basic_sample_project = function(req, res){
     'projectinfo_uid': '8764c510-57b7-44c3-bddf-266d86c26380-0000c160' }
   , function (err) {
     if (err) return console.log(err);
+    console.log( 'save project returned err = ' + err );
     return res.send(202);
   });
 };
