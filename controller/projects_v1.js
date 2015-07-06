@@ -24,7 +24,6 @@ exports.add = function(req, res) {
 
 exports.update = function(req, res) {
   var id = req.params.id;
-
   Project.update({"_id":id}, req.body,
     function (err, numberAffected) {
       if (err) return console.log(err);
