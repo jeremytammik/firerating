@@ -6,7 +6,7 @@ Node.js mongoDB web server used by the
 For more information, please refer to
 [The 3D Web Coder](http://the3dwebcoder.typepad.com),
 [The Building Coder](http://thebuildingcoder.typepad.com) and
-the detailed articles describing the entire implementation and evolution:
+the detailed articles describing the entire project implementation and evolution:
 
 - [My first mongo database](http://the3dwebcoder.typepad.com/blog/2015/06/my-first-mongo-database.html)
   - Define the over-all goal and what to store, namely building projects, door instances hosted in them, and each door's fire rating value, based on the venerable old Revit SDK FireRating sample.
