@@ -1,15 +1,15 @@
 module.exports = function(app) {
-  var projects = require('./controller/projects');
-  app.get('/projects', projects.findAll);
-  app.get('/projects/:id', projects.findById);
-  app.post('/projects', projects.add);
-  app.put('/projects/:id', projects.update);
-  app.delete('/projects/:id', projects.delete);
+  var projects = require('./controller/projects_v1');
+  app.get('/api/v1/projects', projects.findAll);
+  app.get('/api/v1/projects/:id', projects.findById);
+  app.post('/api/v1/projects', projects.add);
+  app.put('/api/v1/projects/:id', projects.update);
+  app.delete('/api/v1/projects/:id', projects.delete);
 
-  var doors = require('./controller/doors');
-  app.get('/doors', doors.findAll);
-  app.get('/doors/:id', doors.findById);
-  app.post('/doors', doors.add);
-  app.put('/doors/:id', doors.update);
-  app.delete('/doors/:id', doors.delete);
+  var doors = require('./controller/doors_v1');
+  app.get('/api/v1/doors', doors.findAll);
+  app.get('/api/v1/doors/:id', doors.findById);
+  app.post('/api/v1/doors', doors.add);
+  app.put('/api/v1/doors/:id', doors.update);
+  app.delete('/api/v1/doors/:id', doors.delete);
 }
