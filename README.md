@@ -1,4 +1,4 @@
-# firerating
+# fireratingdb
 
 Node.js mongoDB web server used by the
 [FireRatingCloud](https://github.com/jeremytammik/FireRatingCloud) Revit add-in.

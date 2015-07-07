@@ -1,7 +1,7 @@
 {
-  "name": "firerating",
-  "version": "0.0.3",
-  "description": "Cloud-based FireRating sample using mongo via mongoose",
+  "name": "fireratingdb",
+  "version": "0.0.6",
+  "description": "Node.js mongoDB web server used by the FireRatingCloud Revit add-in",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
