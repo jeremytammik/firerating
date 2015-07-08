@@ -40,41 +40,41 @@ exports.delete = function(req, res){
   });
 };
 
-exports.findAllForProject = function(req, res){
-  var pid = req.params.pid;
-  Door.find({'project_id':pid},function(err, results) {
-    return res.send(results);
-  });
-};
+//exports.findAllForProject = function(req, res){
+//  var pid = req.params.pid;
+//  Door.find({'project_id':pid},function(err, results) {
+//    return res.send(results);
+//  });
+//};
 
-exports.populate_ten_sample_doors = function(req, res){
-
-  // given: a Revit door element UniqeId;
-  // it must obviously be unique in the database.
-
-  var door_unique_id
-    = '60f91daf-3dd7-4283-a86d-24137b73f3da-0001fd0b';
-
-  Project.findOne({'title':'rac_basic_sample_project.rvt'}
-  , function(err, result) {
-    var pid = result._id;
-
-    console.log( 'project_id = ' + pid );
-
-    for( var i = 0; i < 10; ++i ) {
-      var s = i.toString();
-
-      Door.create({
-        '_id': door_unique_id + s,
-        'project_id': pid,
-        'level': 'Level ' + s,
-        'tag': 'Tag ' + s,
-        'firerating': 123.45 * (i + 0.1) }
-      , function (err) {
-        if (err) return console.log(err);
-        console.log( 'save instance returned err = ' + err );
-        return res.send(202);
-      });
-    }
-  });
-};
+//exports.populate_ten_sample_doors = function(req, res){
+//
+//  // given: a Revit door element UniqeId;
+//  // it must obviously be unique in the database.
+//
+//  var door_unique_id
+//    = '60f91daf-3dd7-4283-a86d-24137b73f3da-0001fd0b';
+//
+//  Project.findOne({'title':'rac_basic_sample_project.rvt'}
+//  , function(err, result) {
+//    var pid = result._id;
+//
+//    console.log( 'project_id = ' + pid );
+//
+//    for( var i = 0; i < 10; ++i ) {
+//      var s = i.toString();
+//
+//      Door.create({
+//        '_id': door_unique_id + s,
+//        'project_id': pid,
+//        'level': 'Level ' + s,
+//        'tag': 'Tag ' + s,
+//        'firerating': 123.45 * (i + 0.1) }
+//      , function (err) {
+//        if (err) return console.log(err);
+//        console.log( 'save instance returned err = ' + err );
+//        return res.send(202);
+//      });
+//    }
+//  });
+//};

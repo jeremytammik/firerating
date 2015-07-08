@@ -39,25 +39,25 @@ exports.delete = function(req, res){
   });
 };
 
-exports.findByUniqueId = function(req, res){
-  var uid = req.params.uid;
-  Project.findOne({'projectinfo_uid':uid},function(err, result) {
-    return res.send(result);
-  });
-};
+//exports.findByUniqueId = function(req, res){
+//  var uid = req.params.uid;
+//  Project.findOne({'projectinfo_uid':uid},function(err, result) {
+//    return res.send(result);
+//  });
+//};
 
-exports.populate_rac_basic_sample_project = function(req, res){
-  Project.create({
-    'computername': 'JEREMYTAMMIB1D2',
-    'path': 'C:/Program Files/Autodesk/Revit 2016/Samples/rac_basic_sample_project.rvt',
-    'centralserverpath': '',
-    'title': 'rac_basic_sample_project.rvt',
-    'numberofsaves': 271,
-    'versionguid': 'f498e8b1-7311-4409-a669-2fd290356bb4',
-    'projectinfo_uid': '8764c510-57b7-44c3-bddf-266d86c26380-0000c160' }
-  , function (err) {
-    if (err) return console.log(err);
-    console.log( 'save project returned err = ' + err );
-    return res.send(202);
-  });
-};
+//exports.populate_rac_basic_sample_project = function(req, res){
+//  Project.create({
+//    'computername': 'JEREMYTAMMIB1D2',
+//    'path': 'C:/Program Files/Autodesk/Revit 2016/Samples/rac_basic_sample_project.rvt',
+//    'centralserverpath': '',
+//    'title': 'rac_basic_sample_project.rvt',
+//    'numberofsaves': 271,
+//    'versionguid': 'f498e8b1-7311-4409-a669-2fd290356bb4',
+//    'projectinfo_uid': '8764c510-57b7-44c3-bddf-266d86c26380-0000c160' }
+//  , function (err) {
+//    if (err) return console.log(err);
+//    console.log( 'save project returned err = ' + err );
+//    return res.send(202);
+//  });
+//};
