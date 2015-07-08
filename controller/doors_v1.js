@@ -24,8 +24,7 @@ exports.add = function(req, res) {
 
 exports.update = function(req, res) {
   var id = req.params.id;
-  var updates = req.body;
-
+  console.log(req.body);
   Door.update({"_id":id}, req.body,
     function (err, numberAffected) {
       if (err) return console.log(err);
@@ -38,6 +37,13 @@ exports.delete = function(req, res){
   var id = req.params.id;
   Door.remove({'_id':id},function(result) {
     return res.send(result);
+  });
+};
+
+exports.findAllForProject = function(req, res){
+  var pid = req.params.pid;
+  Door.find({'project_id':pid},function(err, results) {
+    return res.send(results);
   });
 };
 
