@@ -14,6 +14,8 @@ module.exports = function(app) {
   // a query string, e.g. "projects?projectinfo_uid=..."
   //app.get('/api/v1/projects/uid/:uid', projects.findByUniqueId);
 
+  app.get('/api/v1/projects/pcnamepath/:s', projects.findByComputerNamePath);
+
   var doors = require('./controller/doors_v1');
   app.get('/api/v1/doors', doors.findAll);
   app.get('/api/v1/doors/:id', doors.findById);

@@ -46,6 +46,14 @@ exports.delete = function(req, res){
 //  });
 //};
 
+exports.findByComputerNamePath = function(req, res){
+  var s = req.params.s;
+  var a = s.split('+');
+  Project.findOne({'computername':a[0],'path':a[1]},function(err, result) {
+    return res.send(result);
+  });
+};
+
 //exports.populate_rac_basic_sample_project = function(req, res){
 //  Project.create({
 //    'computername': 'JEREMYTAMMIB1D2',
