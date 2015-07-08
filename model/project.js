@@ -8,19 +8,23 @@ var mongoose = require( 'mongoose' );
 
 var Schema = mongoose.Schema;
 
+var Base64PcNamePath = String;
+
 var RvtUniqueId = String;
 
 // use automatic Mongo ObjectId for project.
 
 var projectSchema = new Schema(
-  { computername        : String // .NET System.Environment.MachineName
+  { _id                 : Base64PcNamePath // suppress automatic generation
+    , computername      : String // .NET System.Environment.MachineName
     , path              : String // Document.PathName
     , centralserverpath : String // Document.GetWorksharingCentralModelPath().CentralServerPath
     , title             : String // Document.Title
     , numberofsaves     : Number // DocumentVersion.NumberOfSaves
     , versionguid       : RvtUniqueId // DocumentVersion.VersionGUID
     , projectinfo_uid   : RvtUniqueId // ProjectInfo.UniqueId
-  }
+  },
+  { _id: false } // suppress automatic generation
 );
 
 mongoose.model( 'Project', projectSchema );
