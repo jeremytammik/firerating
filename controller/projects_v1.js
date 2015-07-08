@@ -39,6 +39,13 @@ exports.delete = function(req, res){
   });
 };
 
+exports.findByUniqueId = function(req, res){
+  var uid = req.params.uid;
+  Project.findOne({'projectinfo_uid':uid},function(err, result) {
+    return res.send(result);
+  });
+};
+
 exports.populate_rac_basic_sample_project = function(req, res){
   Project.create({
     'computername': 'JEREMYTAMMIB1D2',
