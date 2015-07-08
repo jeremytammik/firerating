@@ -27,7 +27,7 @@ exports.update = function(req, res) {
   Project.update({"_id":id}, req.body,
     function (err, numberAffected) {
       if (err) return console.log(err);
-      console.log('Updated %d projects', numberAffected);
+      console.log('Updated %s projects', numberAffected.toString());
       return res.send(202);
   });
 };

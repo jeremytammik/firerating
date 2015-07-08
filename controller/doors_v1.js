@@ -29,7 +29,7 @@ exports.update = function(req, res) {
   Door.update({"_id":id}, req.body,
     function (err, numberAffected) {
       if (err) return console.log(err);
-      console.log('Updated %d doors', numberAffected);
+      console.log('Updated %s doors', numberAffected.toString());
       return res.send(202);
   });
 };
