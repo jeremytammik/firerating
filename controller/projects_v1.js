@@ -54,6 +54,13 @@ exports.delete = function(req, res){
 //  });
 //};
 
+exports.findByJid = function(req, res){
+  var jid = req.params.jid;
+  Project.findOne({'jid':jid},function(err, result) {
+    return res.send(result);
+  });
+};
+
 //exports.populate_rac_basic_sample_project = function(req, res){
 //  Project.create({
 //    'computername': 'JEREMYTAMMIB1D2',

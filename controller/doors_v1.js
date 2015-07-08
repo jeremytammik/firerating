@@ -40,12 +40,12 @@ exports.delete = function(req, res){
   });
 };
 
-//exports.findAllForProject = function(req, res){
-//  var pid = req.params.pid;
-//  Door.find({'project_id':pid},function(err, results) {
-//    return res.send(results);
-//  });
-//};
+exports.findAllForProject = function(req, res){
+  var pid = req.params.pid;
+  Door.find({'project_id':pid},function(err, results) {
+    return res.send(results);
+  });
+};
 
 //exports.populate_ten_sample_doors = function(req, res){
 //

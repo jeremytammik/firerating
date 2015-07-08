@@ -73,7 +73,7 @@ var bodyParser = require( 'body-parser' );
 app.use( bodyParser.json({ limit: '1mb' }) );
 app.use( bodyParser.urlencoded({ extended: true, limit: '1mb' }) );
 
-require( './model/project' );
+//require( './model/project' );
 require( './model/door' );
 require( './routes' )( app );
 

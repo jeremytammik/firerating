@@ -15,7 +15,7 @@ var RvtUniqueId = String;
 
 var doorSchema = new Schema(
   { _id          : RvtUniqueId // suppress automatic generation
-    , project_id : ObjectId
+    , project_id : String
     , level      : String
     , tag        : String
     , firerating : Number },
