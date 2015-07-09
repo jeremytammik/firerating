@@ -55,7 +55,12 @@
 var express = require('express');
 var mongoose = require( 'mongoose' );
 
-var mongo_uri = 'mongodb://localhost/firerating';
+// local database
+//var mongo_uri = 'mongodb://localhost/firerating';
+
+// mongolab hosted
+var mongo_uri = 'mongodb://revit:revit@ds047742.mongolab.com:47742/firerating';
+
 mongoose.connect( mongo_uri );
 var db = mongoose.connection;
 db.on( 'error', function () {
