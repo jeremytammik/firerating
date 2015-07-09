@@ -6,7 +6,7 @@ Node.js mongoDB web server used by the
 For more information, please refer to
 [The 3D Web Coder](http://the3dwebcoder.typepad.com),
 [The Building Coder](http://thebuildingcoder.typepad.com) and
-the detailed articles describing the entire project implementation and evolution:
+the detailed articles describing the entire project implementation and evolution, including first learning steps using mongo, implementing a REST API for it, and using that from a C# .NET desktop app:
 
 - [FireRating in the Cloud](http://thebuildingcoder.typepad.com/blog/2015/07/firerating-and-the-revit-python-shell-in-the-cloud-as-web-servers.html)
   - [The FireRating Revit SDK sample](http://thebuildingcoder.typepad.com/blog/2015/07/firerating-and-the-revit-python-shell-in-the-cloud-as-web-servers.html#2)
