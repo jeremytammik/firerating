@@ -29,7 +29,7 @@ exports.update = function(req, res) {
     function (err, numberAffected) {
       if (err) return console.log(err);
       console.log('Updated %s doors', numberAffected.toString());
-      return res.send(202);
+      return res.sendStatus(202);
   });
 };
 
