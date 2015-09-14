@@ -56,6 +56,18 @@ exports.update2 = function(req, res) {
   });
 };
 
+exports.update3 = function(req, res) {
+  var id = req.params.id;
+  //console.log(req.body);
+  console.log('Updating ' + id);
+  Door.update({"_id":id}, req.body, {upsert:true},
+    function (err, numberAffected) {
+      if (err) return console.log(err);
+      console.log('Updated %s instances', numberAffected.toString());
+      return res.sendStatus(202);
+  });
+};
+
 exports.delete = function(req, res){
   var id = req.params.id;
   Door.remove({'_id':id},function(result) {

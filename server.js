@@ -11,11 +11,18 @@
 var express = require('express');
 var mongoose = require( 'mongoose' );
 
-// local database
-//var mongo_uri = 'mongodb://localhost/firerating';
+var localMongo = false;
 
-// mongolab hosted
-var mongo_uri = 'mongodb://revit:revit@ds047742.mongolab.com:47742/firerating';
+if(localMongo)
+{
+  // local database
+  var mongo_uri = 'mongodb://localhost/firerating';
+}
+else
+{
+  // mongolab hosted
+  var mongo_uri = 'mongodb://revit:revit@ds047742.mongolab.com:47742/firerating';
+}
 
 mongoose.connect( mongo_uri );
 var db = mongoose.connection;
@@ -43,5 +50,7 @@ var server = app.listen(
   app.get( 'port' ),
   function() {
     console.log( 'Firerating server listening at port '
-                + server.address().port ); }
+                + server.address().port + ' with '
+                + (localMongo?'local':'mongolab')
+                + ' mongo db.'); }
 );
