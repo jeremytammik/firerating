@@ -1,25 +1,20 @@
 // server.js
 //
 // main entry point for a cloud-based firerating
-// application, implemented as a node.js
+// database application, implemented as a node.js
 // REST API driven mongoDB web server.
 //
 // Copyright 2015 by Jeremy Tammik, Autodesk Inc.
-
-// Web server
 
 var express = require('express');
 var mongoose = require( 'mongoose' );
 
 var localMongo = false;
 
-if(localMongo)
-{
+if(localMongo) {
   // local database
   var mongo_uri = 'mongodb://localhost/firerating';
-}
-else
-{
+} else {
   // mongolab hosted
   var mongo_uri = 'mongodb://revit:revit@ds047742.mongolab.com:47742/firerating';
 }
@@ -41,7 +36,7 @@ require( './model/door' );
 require( './routes' )( app );
 
 app.get( '/', function( request, response ) {
-  response.send( 'Cloud-based fire rating database\n' );
+  response.send( 'Hello from the cloud-based fire rating database.\n' );
 });
 
 app.set( 'port', process.env.PORT || 3001 );
@@ -51,6 +46,6 @@ var server = app.listen(
   function() {
     console.log( 'Firerating server listening at port '
                 + server.address().port + ' with '
-                + (localMongo?'local':'mongolab')
-                + ' mongo db.'); }
+                + (localMongo?'locally ':'mongolab-')
+                + 'hosted mongo db.'); }
 );
