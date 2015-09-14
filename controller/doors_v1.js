@@ -22,39 +22,39 @@ exports.add = function(req, res) {
   });
 };
 
-exports.update = function(req, res) {
-  var id = req.params.id;
-  //console.log(req.body);
-  console.log('Updating ' + id);
-  Door.update({"_id":id}, req.body,
-    function (err, numberAffected) {
-      if (err) return console.log(err);
-      console.log('Updated %s instances', numberAffected.toString());
-      return res.sendStatus(202);
-  });
-};
+//exports.update = function(req, res) {
+//  var id = req.params.id;
+//  //console.log(req.body);
+//  console.log('Updating ' + id);
+//  Door.update({"_id":id}, req.body,
+//    function (err, numberAffected) {
+//      if (err) return console.log(err);
+//      console.log('Updated %s instances', numberAffected.toString());
+//      return res.sendStatus(202);
+//  });
+//};
 
-exports.update2 = function(req, res) {
-  var id = req.params.id;
-  //console.log(req.body);
-  console.log('Updating ' + id);
-  Door.findOne({'_id':id},function(err, result) {
-    if(result) {
-      Door.update({"_id":id}, req.body,
-        function (err, numberAffected) {
-          if (err) return console.log(err);
-          console.log('Updated %s instances', numberAffected.toString());
-          return res.sendStatus(202);
-      });
-    }
-    else {
-      Door.create(req.body, function (err, instance) {
-        if (err) return console.log(err);
-        return res.send(instance);
-      });
-    }
-  });
-};
+//exports.update2 = function(req, res) {
+//  var id = req.params.id;
+//  //console.log(req.body);
+//  console.log('Updating ' + id);
+//  Door.findOne({'_id':id},function(err, result) {
+//    if(result) {
+//      Door.update({"_id":id}, req.body,
+//        function (err, numberAffected) {
+//          if (err) return console.log(err);
+//          console.log('Updated %s instances', numberAffected.toString());
+//          return res.sendStatus(202);
+//      });
+//    }
+//    else {
+//      Door.create(req.body, function (err, instance) {
+//        if (err) return console.log(err);
+//        return res.send(instance);
+//      });
+//    }
+//  });
+//};
 
 exports.update3 = function(req, res) {
   var id = req.params.id;
