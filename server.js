@@ -6,6 +6,7 @@
 //
 // Copyright 2015 by Jeremy Tammik, Autodesk Inc.
 
+var pkg = require( './package.json' );
 var express = require('express');
 var mongoose = require( 'mongoose' );
 
@@ -36,7 +37,8 @@ require( './model/door' );
 require( './routes' )( app );
 
 app.get( '/', function( request, response ) {
-  response.send( 'Hello from the cloud-based fire rating database.\n' );
+  response.send( 'Hello from the cloud-based fire rating '
+                + 'database ' + pkg.version + '.\n' );
 });
 
 app.set( 'port', process.env.PORT || 3001 );
@@ -44,7 +46,9 @@ app.set( 'port', process.env.PORT || 3001 );
 var server = app.listen(
   app.get( 'port' ),
   function() {
-    console.log( 'Firerating server listening at port '
+    console.log( 'Firerating server '
+                + pkg.version
+                + ' listening at port '
                 + server.address().port + ' with '
                 + (localMongo?'locally ':'mongolab-')
                 + 'hosted mongo db.'); }
