@@ -1,9 +1,29 @@
 # fireratingdb
 
-Node.js mongoDB web server used by the
-[FireRatingCloud](https://github.com/jeremytammik/FireRatingCloud) Revit add-in.
+fireratingdb is
+a [Node](https://nodejs.org) web server driving
+a [MongoDB](https://www.mongodb.org) database.
+
+It interacts with
+the [FireRatingCloud](https://github.com/jeremytammik/FireRatingCloud) Revit C# add-in, which is a REST client.
 
 For more information, please refer to that repository.
+
+
+## Installation
+
+The simplest way to install fireratingdb is to host it on a public node.js hosting platform such
+as [Heroku](http://heroku.com)
+and set up the database on a MongoDB hosting platform such as [mongolab](https://mongolab.com).
+
+The currently running sample installation does just that, and the links to the two
+are [fireratingdb.herokuapp.com](http://fireratingdb.herokuapp.com)
+and [mongolab.com/databases/firerating](https://mongolab.com/databases/firerating).
+
+You can run either or both components locally on your own system as well, or anywhere else you like, in which case you need to install and
+run [MongoDB](https://www.mongodb.org)
+and/or [Node](https://nodejs.org) and
+the fireratingdb app as needed.
 
 
 ## Author
