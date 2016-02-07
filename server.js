@@ -10,7 +10,7 @@ var pkg = require( './package.json' );
 var express = require('express');
 var mongoose = require( 'mongoose' );
 
-var localMongo = false;
+var localMongo = true;
 
 if(localMongo) {
   // local database

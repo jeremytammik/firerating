@@ -17,8 +17,16 @@ DoorService = {
     });
   },
 
-  add : function(req, res) {
-    Door.create(req.body, function (err, door) {
+  //add : function(req, res) {
+  //  Door.create(req.body, function (err, door) {
+  //    if (err) return console.log(err);
+  //    return res.send(door);
+  //  });
+  //},
+
+  insertBatch : function(req, res) {
+    console.log('Insert batch');
+    Door.insertMany(req.body, function (err, door) {
       if (err) return console.log(err);
       return res.send(door);
     });
@@ -80,6 +88,13 @@ DoorService = {
   findAllForProject : function(req, res){
     var pid = req.params.pid;
     Door.find({'project_id':pid},function(err, results) {
+      return res.send(results);
+    });
+  },
+
+  deleteAllForProject : function(req, res){
+    var pid = req.params.pid;
+    Door.deleteMany({'project_id':pid},function(err, results) {
       return res.send(results);
     });
   }
