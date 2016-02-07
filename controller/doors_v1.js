@@ -80,7 +80,7 @@ DoorService = {
 
   delete : function(req, res){
     var id = req.params.id;
-    Door.remove({'_id':id},function(result) {
+    Door.remove({'_id':id},function(err,result) {
       return res.send(result);
     });
   },
@@ -94,7 +94,7 @@ DoorService = {
 
   deleteAllForProject : function(req, res){
     var pid = req.params.pid;
-    Door.deleteMany({'project_id':pid},function(err, results) {
+    Door.remove({'project_id':pid},function(err, results) {
       return res.send(results);
     });
   }
