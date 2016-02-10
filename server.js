@@ -10,7 +10,7 @@ var pkg = require( './package.json' );
 var express = require('express');
 var mongoose = require( 'mongoose' );
 
-var localMongo = true;
+var localMongo = false;
 
 if(localMongo) {
   // local database
@@ -50,6 +50,6 @@ var server = app.listen(
                 + pkg.version
                 + ' listening at port '
                 + server.address().port + ' with '
-                + (localMongo?'locally ':'mongolab-')
+                + (localMongo ? 'locally ' : 'mongolab-')
                 + 'hosted mongo db.'); }
 );
