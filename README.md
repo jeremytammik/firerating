@@ -25,6 +25,12 @@ run [MongoDB](https://www.mongodb.org)
 and/or [Node](https://nodejs.org) and
 the fireratingdb app as needed.
 
+Here is a button to deploy this app on your Heroku account:
+
+<a href="https://www.heroku.com/deploy/?template=https://github.com/jeremytammik/firerating">
+  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
+</a>
+
 
 ## Author
 
