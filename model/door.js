@@ -17,8 +17,9 @@ var doorSchema = new Schema(
     , project_id : String
     , level      : String
     , tag        : String
-    , firerating : Number },
-  { _id: false } // suppress automatic generation
+    , firerating : Number
+    , modified   : Number },
+  { _id          : false } // suppress automatic generation
 );
 
 mongoose.model( 'Door', doorSchema );
