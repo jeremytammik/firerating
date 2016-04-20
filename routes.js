@@ -9,5 +9,6 @@ module.exports = function(app) {
   app.put('/api/v1/doors/:id', DoorService.update3); // added {upsert:true} option
   app.delete('/api/v1/doors/:id', DoorService.delete);
   app.get('/api/v1/doors/project/:pid', DoorService.findAllForProject);
+  app.get('/api/v1/doors/project/:pid/newer/:mod', DoorService.findAllForProjectModifiedAfter);
   app.delete('/api/v1/doors/project/:pid', DoorService.deleteAllForProject);
 }

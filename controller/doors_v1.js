@@ -92,6 +92,16 @@ DoorService = {
     });
   },
 
+  findAllForProjectModifiedAfter : function(req, res){
+    var pid = req.params.pid;
+    var mod = req.params.mod;
+    Door.find({'project_id':pid, 'modified':{$gt:mod}},
+      function(err, results) {
+        return res.send(results);
+      }
+    );
+  },
+
   deleteAllForProject : function(req, res){
     var pid = req.params.pid;
     Door.remove({'project_id':pid},function(err, results) {
