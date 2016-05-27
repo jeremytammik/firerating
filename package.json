@@ -1,6 +1,6 @@
 {
   "name": "fireratingdb",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "description": "Node.js mongoDB web server for the FireRatingCloud Revit add-in",
   "main": "server.js",
   "license": "MIT",
@@ -14,13 +14,14 @@
   "dependencies": {
     "body-parser": "1.14.2",
     "express": "4.13.4",
-    "mongoose": "4.4.2"
+    "mongoose": "4.4.2",
+    "socket.io": "^1.4.6"
   },
   "engines": {
     "node": "0.10.x"
   },
   "keywords": [
     "node",
-    "mongose"
+    "mongoose"
   ]
 }
