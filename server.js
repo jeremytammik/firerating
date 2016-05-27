@@ -4,10 +4,11 @@
 // database application, implemented as a node.js
 // REST API driven mongoDB web server.
 //
-// Copyright 2015 by Jeremy Tammik, Autodesk Inc.
+// Copyright 2015-2016 by Jeremy Tammik, Autodesk Inc.
 
 var pkg = require( './package.json' );
 var express = require('express');
+var io = require('socket.io');
 var mongoose = require( 'mongoose' );
 
 var localMongo = false;
