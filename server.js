@@ -8,7 +8,6 @@
 
 var pkg = require( './package.json' );
 var express = require('express');
-var io = require('socket.io');
 var mongoose = require( 'mongoose' );
 
 var localMongo = false;
@@ -52,5 +51,6 @@ var server = app.listen(
                 + ' listening at port '
                 + server.address().port + ' with '
                 + (localMongo ? 'locally ' : 'mongolab-')
-                + 'hosted mongo db.'); }
+                + 'hosted mongo db.');
+  }
 );
