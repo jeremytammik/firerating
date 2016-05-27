@@ -1,4 +1,4 @@
-module.exports = function(app, io) {
+module.exports = function(app) {
   var DoorService = require('./controller/doors_v1');
   app.get('/api/v1/doors', DoorService.findAll);
   app.get('/api/v1/doors/:id', DoorService.findById);
