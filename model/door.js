@@ -8,9 +8,9 @@ var mongoose = require( 'mongoose' );
 
 var Schema = mongoose.Schema;
 
-var RvtUniqueId = String;
+// use Revit UniqueId for door instance ids:
 
-// use Revit UniqueId for door instances.
+var RvtUniqueId = String;
 
 var doorSchema = new Schema(
   { _id          : RvtUniqueId // suppress automatic generation
